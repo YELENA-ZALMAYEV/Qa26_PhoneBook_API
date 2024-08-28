@@ -33,7 +33,7 @@ public class GetAllContactsTestsOkhttp {
         Request request = new Request.Builder()
                 .url("https://contactapp-telran-backend.herokuapp.com/v1/contacts")
                 .get()
-                .addHeader("Authorization", token)
+                .addHeader("Authorization", "123Sd_Q")
                 .build();
         Response response = client.newCall(request).execute();
         Assert.assertEquals(response.code(), 401);
