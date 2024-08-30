@@ -17,8 +17,8 @@ public class RegistrationTestsOkHttp {
     OkHttpClient client = new OkHttpClient();
 
     @Test
-    public  void  RegistrationSuccess() throws IOException {
-        AuthRequestDTO auth = AuthRequestDTO.builder().username("elzal@gmail.com").password("Qaz1234567_&").build();
+    public  void  RegistrationDSuccess() throws IOException {
+        AuthRequestDTO auth = AuthRequestDTO.builder().username("elzal//@gmail.com").password("Qaz1234567_&").build();
         RequestBody body = RequestBody.create(gson.toJson(auth), JSON);
         Request request = new Request.Builder()
                 .url("https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword")
@@ -27,7 +27,8 @@ public class RegistrationTestsOkHttp {
         Response response = client.newCall(request).execute();
         Assert.assertTrue(response.isSuccessful());
         Assert.assertEquals(response.code(), 200); //anuff one of assert
-        AuthResponseDTO responseDTO = gson.fromJson( response.body().string(), AuthResponseDTO.class);
+        AuthResponseDTO responseDTO =
+                gson.fromJson( response.body().string(), AuthResponseDTO.class);
 
         System.out.println(responseDTO.getToken());
 
@@ -50,7 +51,7 @@ public class RegistrationTestsOkHttp {
 
     @Test
     public  void  RegistrationDuplicateUser() throws IOException {
-        AuthRequestDTO auth = AuthRequestDTO.builder().username("elzal@gmail.com").password("Qaz1234567_&").build();
+        AuthRequestDTO auth = AuthRequestDTO.builder().username("elzal//@gmail.com").password("Qaz1234567_&").build();
         RequestBody body = RequestBody.create(gson.toJson(auth), JSON);
         Request request = new Request.Builder()
                 .url("https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword")
