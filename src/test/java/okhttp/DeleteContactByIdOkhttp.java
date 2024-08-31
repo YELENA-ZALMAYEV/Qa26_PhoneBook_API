@@ -75,18 +75,18 @@ public class DeleteContactByIdOkhttp {
                 .addHeader("Authorization", "jbjhj")
                 .build();
         Response response =client.newCall(request).execute();
-        Assert.assertEquals(response.code(), 400);
+        Assert.assertEquals(response.code(), 401);
 
         ErrorDTO errorDTO = gson.fromJson(response.body().string(), ErrorDTO.class);
        // System.out.println(dto.getMessage());
-        Assert.assertEquals(errorDTO.getError(), "Bad");
+        Assert.assertEquals(errorDTO.getError(), "Unauthorized");
 
     }
 
     @Test
     public  void deleteContactByIdNotFound() throws IOException {
         Request request = new Request.Builder()
-                .url("https://contactapp-telran-backend.herokuapp.com/v1/contacts" +123)
+                .url("https://contactapp-telran-backend.herokuapp.com/v1/contacts/" +123)
                 .delete()
                 .addHeader("Authorization", token)
                 .build();
@@ -94,7 +94,9 @@ public class DeleteContactByIdOkhttp {
         Assert.assertEquals(response.code(), 400);
 
         ErrorDTO errorDTO = gson.fromJson(response.body().string(), ErrorDTO.class);
-        Assert.assertEquals(errorDTO.getError(), "Contact with id: 123 not found in your contacts!");
+        Assert.assertEquals(errorDTO.getError(), "Bad Request");
+        System.out.println(errorDTO.getMessage());
+        Assert.assertEquals(errorDTO.getMessage(), "Contact with id: 123 not found in your contacts!");
 
     }
 
