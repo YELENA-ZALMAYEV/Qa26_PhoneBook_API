@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.Random;
 
 public class DeleteContactByIdOkhttp {
-    String token = " eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiZWx6YWwyODM0QGdtYWlsLmNvbSIsImlzcyI6IlJlZ3VsYWl0IiwiZXhwIjoxNzI1MzgwNjQ3LCJpYXQiOjE3MjQ3ODA2NDd9.PJRli6gTbOpDG-sbmLQsT33Ame3bGJ-C42iyi6AUIQY";
+    String token = " eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiZWx6YWwyODM0QGdtYWlsLmNvbSIsImlzcyI6IlJlZ3VsYWl0IiwiZXhwIjoxNzI2MDMxMjQ2LCJpYXQiOjE3MjU0MzEyNDZ9.AIoyZZmedBw2LlM_eP_ZB7ndyOJV2QTUZWgXjRSkukM";
     Gson gson = new Gson();
     OkHttpClient client = new OkHttpClient();
     public static final MediaType JSON = MediaType.get("application/json;charset=utf-8");
